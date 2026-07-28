@@ -1,0 +1,315 @@
+spawn-at-startup "kitty"
+spawn-at-startup "noctalia-shell"
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot_ %Y-%m-%d_%H-%M-%S.png"
+
+// https://niri-wm.github.io/niri/Configuration%3A-Outputs.html
+
+/////////////////////////////////////////
+//// INPUTS
+/////////////////////////////////////////
+
+input {
+    keyboard {
+        xkb {
+            // layout "us"
+            // variant "colemak_dh_ortho"
+            // options "compose:ralt,ctrl:nocaps"
+            // model ""
+            // rules ""
+            // file "~/.config/keymap.xkb"
+        }
+
+        // repeat-delay 600
+        // repeat-rate 25
+        // track-layout "global"
+        numlock
+    }
+
+    touchpad {
+        // off
+        tap
+        // dwt
+        // dwtp
+        // drag false
+        // drag-lock
+        natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-factor 1.0
+        // scroll-factor vertical=1.0 horizontal=-2.0
+        // scroll-method "two-finger"
+        // scroll-button 273
+        // scroll-button-lock
+        // tap-button-map "left-middle-right"
+        // click-method "clickfinger"
+        // left-handed
+        // disabled-on-external-mouse
+        // middle-emulation
+    }
+
+    mouse {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-factor 1.0
+        // scroll-factor vertical=1.0 horizontal=-2.0
+        // scroll-method "no-scroll"
+        // scroll-button 273
+        // scroll-button-lock
+        // left-handed
+        // middle-emulation
+    }
+
+    trackpoint {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "on-button-down"
+        // scroll-button 273
+        // scroll-button-lock
+        // left-handed
+        // middle-emulation
+    }
+
+    trackball {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "on-button-down"
+        // scroll-button 273
+        // scroll-button-lock
+        // left-handed
+        // middle-emulation
+    }
+
+    tablet {
+        // off
+        map-to-output "eDP-1"
+        // map-to-focused-output
+        // map-to-focused-window
+        // left-handed
+        // calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
+    }
+
+    touch {
+        // off
+        map-to-output "eDP-1"
+        // calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
+    }
+
+    // disable-power-key-handling
+    // warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="0%"
+    workspace-auto-back-and-forth
+
+    // mod-key "Super"
+    // mod-key-nested "Alt"
+}
+
+/////////////////////////////////////////
+//// BINDS
+/////////////////////////////////////////
+
+binds {
+    Alt+T cooldown-ms=500 { spawn "kitty"; }
+    Alt+Q    { close-window; }
+    Alt+Left { focus-column-left; }
+    Alt+Right { focus-column-right; }
+    Alt+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Alt+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+    Alt+WheelScrollRight cooldown-ms=150                { focus-column-right; }
+    Alt+WheelScrollLeft  cooldown-ms=150                { focus-column-left; }
+    Alt+TouchpadScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Alt+TouchpadScrollUp   cooldown-ms=150 { focus-workspace-up; }
+    Alt+TouchpadScrollRight cooldown-ms=150                 { focus-column-right; }
+    Alt+TouchpadScrollLeft  cooldown-ms=150                { focus-column-left; }
+
+    // The pointer will be hidden by default
+    // (you can still show it by pressing P).
+    Print { screenshot show-pointer=false; }
+
+    // The pointer will be hidden on the screenshot.
+    Ctrl+Print { screenshot-screen show-pointer=false; }
+
+}
+
+switch-events {
+    lid-close { spawn "notify-send" "The laptop lid is closed!"; }
+    lid-open { spawn "notify-send" "The laptop lid is open!"; }
+    tablet-mode-on { spawn "bash" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true"; }
+    tablet-mode-off { spawn "bash" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false"; }
+}
+
+recent-windows {
+    // off
+    debounce-ms 750
+
+    open-delay-ms 150
+
+    highlight {
+        active-color "#999999ff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 0
+    }
+
+    previews {
+        max-height 480
+        max-scale 0.5
+    }
+
+    binds {
+        Alt+S         { next-window; }
+        Alt+D  { previous-window; }
+    }
+}
+
+/////////////////////////////////////////
+//// GESTURES
+/////////////////////////////////////////
+
+gestures {
+    dnd-edge-view-scroll {
+        trigger-width 30
+        delay-ms 100
+        max-speed 1500
+    }
+
+    dnd-edge-workspace-switch {
+        trigger-height 50
+        delay-ms 100
+        max-speed 1500
+    }
+
+    hot-corners {
+        // off
+        top-left
+        top-right
+        bottom-left
+        bottom-right
+    }
+}
+
+/////////////////////////////////////////
+//// MISC
+/////////////////////////////////////////
+
+environment {
+    QT_QPA_PLATFORM "wayland"
+    DISPLAY null
+}
+
+cursor {
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 24
+
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
+overview {
+    zoom 0.35
+    backdrop-color "#262626"
+
+    workspace-shadow {
+        // off
+        softness 40
+        spread 10
+        offset x=0 y=10
+        color "#00000050"
+    }
+}
+
+xwayland-satellite {
+    // off
+    path "xwayland-satellite"
+}
+
+clipboard {
+    disable-primary
+}
+
+hotkey-overlay {
+    skip-at-startup
+    hide-not-bound
+}
+
+config-notification {
+    disable-failed
+}
+
+blur {
+    // off
+    passes 3
+    offset 3.0
+    noise 0.02
+    saturation 1.5
+}
+
+/////////////////////////////////////////
+//// ANIMATIONS
+/////////////////////////////////////////
+
+animations {
+    // Uncomment to turn off all animations.
+    // You can also put "off" into each individual animation to disable it.
+    // off
+
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    slowdown 0.75
+
+    // Individual animations.
+
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    config-notification-open-close {
+        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+    }
+
+    exit-confirmation-open-close {
+        spring damping-ratio=0.6 stiffness=500 epsilon=0.01
+    }
+
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    recent-windows-close {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.001
+    }
+}
