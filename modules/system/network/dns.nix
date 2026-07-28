@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.power = { lib, ... }: {
+  flake.nixosModules.dns = { lib, ... }: {
     # https://wiki.nixos.org/wiki/Unbound
     services.unbound = {
       enable = false;
