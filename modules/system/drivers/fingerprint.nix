@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.power = { pkgs, ... }: {
+  flake.nixosModules.fingerprint = { pkgs, ... }: {
     #! Disabled it because it cause problems with SDDM (login, unlock, ...)
     # https://wiki.nixos.org/wiki/Fingerprint_scanner
     # https://wiki.nixos.org/wiki/SDDM
