@@ -2,7 +2,7 @@
 
 This NixOS configuration follows the [**dendritic pattern**](https://github.com/mightyiam/dendritic).
 It also uses **wrappers** to enable direct execution of packages
-from the GitHub repository, bundles with their respective configuration.
+from the GitHub repository, bundled with their respective configuration.
 
 ## Libraries
 
