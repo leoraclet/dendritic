@@ -18,5 +18,5 @@ Powered by :
 This configuration took inspirations from :
 
 - [GaetanLepage/nix-config](https://github.com/GaetanLepage/nix-config)
-- [voidarc/nixos?ref=dendritic](https://git.voidarc.co.uk/voidarc/nixos/src/branch/dendritic/)
+- [voidarc/nixos](https://git.voidarc.co.uk/voidarc/nixos/src/branch/dendritic/)
 - [vimjoyer/nixconf](https://github.com/vimjoyer/nixconf)
