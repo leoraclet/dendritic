@@ -8,6 +8,7 @@ from the GitHub repository, bundled with their respective configuration.
 
 Powered by :
 
+- [nixpkgs](https://github.com/NixOS/nixpkgs/)
 - [flake-parts](https://github.com/hercules-ci/flake-parts)
 - [nix-wrapper-modules](https://github.com/BirdeeHub/nix-wrapper-modules)
 - [import-tree](https://github.com/denful/import-tree)
