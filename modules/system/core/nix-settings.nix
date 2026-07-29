@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.nix = { ... }: {
+  flake.nixosModules.nix-setings = { ... }: {
     nixpkgs.config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
