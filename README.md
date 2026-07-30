@@ -71,6 +71,16 @@ nix flake show
 > [!warning]
 > TODO ...
 
+## Structure
+
+The current structure follows this pattern (subject to change):
+
+- **[`secrets`](./secrets)**: Stores configuration secrets.
+- **[`modules`](./modules)**
+  - **[`features`](./modules/features)**: Contains all standalone features and wrapped programs.
+  - **[`hosts`](./modules/hosts)**: Holds machine-specific configurations.
+  - **[`system`](./modules/system)**: Includes system modules and configuration files.
+
 ## Libraries
 
 Powered by :
