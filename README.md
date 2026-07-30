@@ -4,12 +4,25 @@ This NixOS configuration follows the [**dendritic pattern**](https://github.com/
 It also uses **wrappers** to enable direct execution of packages
 from the GitHub repository, bundled with their respective configuration.
 
-## Goal
+## Why ?
 
 The long-term goal of this configuration is to replace my current [setup](https://github.com/leoraclet/nixos-config)
 and provide most of its programs as ready-to-use packages. These packages will
 include their configurations and could be launched from anywhere using a single
 Nix command.
+
+### Pros
+
+Why I'm doing this (self-convincing included):
+
+- The **dendritic pattern** is new and innovative—I need to try it.
+- When implemented correctly, it allows for a **clear separation of concerns** in the configuration. Thanks to **flake-parts**, the same file can define both the **NixOS** and **Home Manager** configurations for a feature or program, side by side.
+- All modules will be **independent**, enabling better modularity and flexible reorganization of the configuration.
+
+### Cons
+
+- Rewriting everything in this new way takes time and effort to get it right.
+- Only time will tell how it holds up ...
 
 ## Usage
 
@@ -52,6 +65,11 @@ nix flake show
 > with troubleshooting and prepared to fix issues. For now, these are just
 > template/boilerplate commands to test the configuration directly on a
 > system or in a VM.
+
+---
+
+> [!warning]
+> TODO ...
 
 ## Libraries
 
